@@ -120,7 +120,7 @@ class App extends Component {
   onAPIcall = () =>{
     const raw = JSON.stringify({
       "user_app_id": {
-          "user_id": "7a01kgjbtwgm",
+          "user_id": "--",
           "app_id": "e83cd2c610de44539de72c1f70ccacbb"
        },
       "inputs": [
