@@ -138,9 +138,9 @@ class App extends Component {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
-        // 'Authorization': '--'
+        // 'Authorization': '9bd15bd8ec014246bd53cff4f13826ed'
         // ^^ This is PAT, not API key
-        'Authorization': '--'
+        'Authorization': 'Key f9a52f8f40844fa8baa9c2c383e58d1a'
          // ^^ This is API key
       },
       body: raw

@@ -138,9 +138,9 @@ class App extends Component {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
-        // 'Authorization': '--'
+        // 'Authorization': '9bd15bd8ec014246bd53cff4f13826ed'
         // ^^ This is PAT, not API key
-        'Authorization': '--'
+        'Authorization': 'Key f9a52f8f40844fa8baa9c2c383e58d1a'
          // ^^ This is API key
       },
       body: raw
@@ -191,33 +191,31 @@ class App extends Component {
         this.setState({route: 'home'});
     }
 
-       render(){
-          return (
+   render(){
+      return (
 
-             <div className="App">
-                <Particles className="particles" 
-                         options={particleOptions} 
-                         init={particlesInit}
-                         loaded={particlesLoaded} 
-                />
-                <Navigation />
-                {this.state.route === 'signin'
-                    ? 
-                    <Signin onRouteChange={this.onRouteChange}/>
-                    :
-                    <div>
-                        <Logo />
-                        <Rank />
-                        <ImageLinkForm 
-                           onInputChange={this.onInputChange}
-                           onButtonSubmit={this.onButtonSubmit}
-                        />
-                        <FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} />
-                    </div>
-                }
-             </div>
-          );
-       }
+         <div className="App">
+            <Particles className="particles" 
+                     options={particleOptions} 
+                     init={particlesInit}
+                     loaded={particlesLoaded} 
+            />
+            <Navigation />
+            {this.state.route === 'signin'
+                ? <Signin onRouteChange={this.onRouteChange}/>
+                : <div>
+                    <Logo />
+                    <Rank />
+                    <ImageLinkForm 
+                       onInputChange={this.onInputChange}
+                       onButtonSubmit={this.onButtonSubmit}
+                    />
+                    <FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} />
+                </div>
+            }
+         </div>
+      );
+   }
 }
 
 export default App;
