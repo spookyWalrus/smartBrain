@@ -191,33 +191,31 @@ class App extends Component {
         this.setState({route: 'home'});
     }
 
-       render(){
-          return (
+   render(){
+      return (
 
-             <div className="App">
-                <Particles className="particles" 
-                         options={particleOptions} 
-                         init={particlesInit}
-                         loaded={particlesLoaded} 
-                />
-                <Navigation />
-                {this.state.route === 'signin'
-                    ? 
-                    <Signin onRouteChange={this.onRouteChange}/>
-                    :
-                    <div>
-                        <Logo />
-                        <Rank />
-                        <ImageLinkForm 
-                           onInputChange={this.onInputChange}
-                           onButtonSubmit={this.onButtonSubmit}
-                        />
-                        <FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} />
-                    </div>
-                }
-             </div>
-          );
-       }
+         <div className="App">
+            <Particles className="particles" 
+                     options={particleOptions} 
+                     init={particlesInit}
+                     loaded={particlesLoaded} 
+            />
+            <Navigation />
+            {this.state.route === 'signin'
+                ? <Signin onRouteChange={this.onRouteChange}/>
+                : <div>
+                    <Logo />
+                    <Rank />
+                    <ImageLinkForm 
+                       onInputChange={this.onInputChange}
+                       onButtonSubmit={this.onButtonSubmit}
+                    />
+                    <FaceRecognition box={this.state.box} imageUrl={this.state.imageUrl} />
+                </div>
+            }
+         </div>
+      );
+   }
 }
 
 export default App;
