@@ -57,7 +57,7 @@ class App extends Component {
       this.setState({input:event.target.value});
     }
 
-  afterAPIcall = () =>{ // increment counter
+  afterAPIcall = () =>{
     fetch('http://localhost:3000/image', {
         method: 'put',
         headers: {'Content-Type': 'application/json'},
@@ -74,7 +74,7 @@ class App extends Component {
     .catch(error => console.log('error', error));
   }
 
-  onApiCreds = () =>{ // retrieves API credentials to access Clarifai
+  onApiCreds = () =>{
      fetch('http://localhost:3000/imageurl',{
       method: 'post',
       headers: {'Content-Type': 'application/json'},
@@ -83,32 +83,75 @@ class App extends Component {
       })
     })
     .then(response => response.json())
-    .then(response => {
-        if(response) {
-           // this.onAPIcall(response) // make  call to Clairfai
-            fetch("https://api.clarifai.com/v2/models/face-detection/outputs", response)
-            .then(response => response.text())
-            .then(result => this.displayFaceBox(this.calculateFaceLocation(result)))
-            .then(this.afterAPIcall())
-            .catch(error => console.log('error for onAPIcall',error));
-        }})
-    .catch(error => console.log('error for onApiCreds',error));
+    .then(response => this.onAPIcall(response))
+    .catch(error => console.log('error for handleApiCall',error));
+
   }
 
+
   onAPIcall = (creds) =>{
-    fetch("https://api.clarifai.com/v2/models/face-detection/outputs", creds)
-    .then(response => response.text())
-    .then(result => this.displayFaceBox(this.calculateFaceLocation(result)))
-    .then(this.afterAPIcall())
-    .catch(error => console.log('error for onAPIcall',error));
+    // const raw = JSON.stringify({
+    //   "user_app_id": {
+    //       "user_id": "7a01kgjbtwgm",
+    //       "app_id": "e83cd2c610de44539de72c1f70ccacbb"
+    //    },
+    //   "inputs": [
+    //     {
+    //       "data": {
+    //         "image": {
+    //           "url": this.state.imageUrl
+    //         }
+    //       }
+    //     }
+    //   ]
+    // });
+
+    // const requestOptions = {
+    //   method: 'POST',
+    //   headers: {
+    //     'Accept': 'application/json',
+        // 'Authorization': '9bd15bd8ec014246bd53cff4f1',
+        // ^^ This is PAT, not API key
+        // 'Authorization': 'Key f9a52f8f40844fa8baa9c2c383e58d1a'
+         // ^^ This is API key
+    //   },
+    //   body: raw
+    // };
+     // color-recognition
+      // face-detection
+    // fetch('http://localhost:3000/imageurl',{
+    //   method: 'post',
+    //   headers: {'Content-Type': 'application/json'},
+    //   body: JSON.stringify({
+    //     input: this.state.imageUrl
+    //   })
+    // })
+    // .then(response => response.json())
+    // .then(response => {
+    //   if(response){
+  fetch("https://api.clarifai.com/v2/models/face-detection/outputs", creds)
+  // fetch("https://api.clarifai.com/v2/models/face-detection/outputs", requestOptions)
+      .then(response => response.text())
+      .then(result => this.displayFaceBox(this.calculateFaceLocation(result)))
+      // .then(result => console.log(JSON.parse(result, null, 2).outputs[0].data))
+      .then(this.afterAPIcall())
+      // .catch(error => console.log('error', error));
+      // .then(result => this.displayFaceBox(this.calculateFaceLocation(result)))
+          // .catch(error => console.log('error', error));
+// }
+    .catch(error => console.log('error for handleApiCall',error));
+
   }
 
   calculateFaceLocation = (result) =>{
     const box = JSON.parse(result, null, 2).outputs[0].data;
+        // console.log(JSON.parse(result, null, 2).outputs[0].data);
+        // console.log(box.regions[0].region_info.bounding_box);
     const face = box.regions[0].region_info.bounding_box;
     const image = document.getElementById('inputimage');    
     const width = Number(image.width);
     const height = Number(image.height);
+    // console.log(width, height);
     return {
         leftCol: face.left_col * width,
         topRow: face.top_row * height,
@@ -122,10 +165,14 @@ class App extends Component {
    }
 
   onButtonSubmit = () =>{
+    // const input = this.state.input;
     this.setState({imageUrl: this.state.input}, ()=>{
-    this.onApiCreds();
+      // this.onAPIcall();
+      this.onApiCreds();
     });
   }
+
+  
 
 //  https://this-person-does-not-exist.com/en
 
@@ -135,10 +182,13 @@ class App extends Component {
       }else if (route === 'home'){
           this.setState({isSignedIn: true})
       }
+        console.log(route);
         this.setState({route: route});
+
     }
 
    render(){
+
       return (
          <div className="App">
             <Particles className="particles" 
