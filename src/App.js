@@ -58,7 +58,7 @@ class App extends Component {
     }
 
   afterAPIcall = () =>{ // increment counter
-    fetch('http://localhost:3000/image', {
+    fetch('https://polar-stream-61468.herokuapp.com:3000/image', {
         method: 'put',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -75,7 +75,7 @@ class App extends Component {
   }
 
   onApiCreds = () =>{ // retrieves API credentials to access Clarifai
-     fetch('http://localhost:3000/imageurl',{
+     fetch('https://polar-stream-61468.herokuapp.com/imageurl',{
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
