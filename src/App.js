@@ -113,7 +113,7 @@ class App extends Component {
         leftCol: face.left_col * width,
         topRow: face.top_row * height,
         rightCol: width - (face.right_col * width),
-        bottomRow: (height * 1.5) - (face.bottom_row * width)
+        bottomRow: height - (face.bottom_row * width)
     }
    }
 
