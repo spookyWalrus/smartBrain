@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 // import Clarifai from 'clarifai';
-import Particles from 'react-tsparticles';
-import ParticleOptions from './components/particleBG/particleBG';
+import ParticlesBg from 'particles-bg';
 import Navigation from './components/Navigation/Navigation';
 import Signin from './components/Signin/Signin';
 import Register from './components/Register/Register';
@@ -11,13 +10,6 @@ import ImageLinkForm from './components/ImageLinkForm/ImageLinkForm';
 import Rank from './components/Rank/Rank';
 import './App.css';
 
-  const particlesInit = (main) => {
-//     // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
-  };
-  const particlesLoaded = (container) => {
-//     // console.log(container);
-  };
-// Above needed for Particles Component intialization...
 
 
 const initialState = {
@@ -141,11 +133,7 @@ class App extends Component {
    render(){
       return (
          <div className="App">
-            <Particles className="particles" 
-                     options={ParticleOptions} 
-                     init={particlesInit}
-                     loaded={particlesLoaded} 
-            />
+            <ParticlesBg type="thick" color="#74cdac" num={200} bg={true} />
             <Navigation isSignedIn={this.state.isSignedIn} onRouteChange={this.onRouteChange}/>
             {this.state.route === 'home'
                 ? 
