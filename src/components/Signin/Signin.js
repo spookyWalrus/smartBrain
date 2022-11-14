@@ -19,7 +19,8 @@ class Signin extends React.Component {
 	}
 
 	onSubmitSignin = () =>{
-		fetch('https://polar-stream-61468.herokuapp.com/signin', {
+		// fetch('https://polar-stream-61468.herokuapp.com/signin', {
+		fetch('postgres://smartbrain_db_user:jL3vO4TqmFvqsvwxtkV3uMccsBmbDM8w@dpg-cdp67sen6mpuqrucfbsg-a/smartbrain_db', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
@@ -34,11 +35,6 @@ class Signin extends React.Component {
 				this.props.onRouteChange('home');
 			}
 		})
-		// .then(data =>{
-		// 	if(data === 'sign in success'){
-		// 		this.props.onRouteChange('home');
-		// 	}
-		// })
 	}
 
 	render() {
