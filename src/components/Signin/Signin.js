@@ -19,8 +19,6 @@ class Signin extends React.Component {
 	}
 
 	onSubmitSignin = () =>{
-		// fetch('postgres:s6KZtea6pLD9R4Nd1245@containers-us-west-126.railway.app:6719/railway', {
-		// fetch('postgres://smartbrain_db_user:jL3vO4TqmFvqsvwxtkV3uMccsBmbDM8w@dpg-cdp67sen6mpuqrucfbsg-a/smartbrain_db', {
 		fetch('https://polar-stream-61468.herokuapp.com/signin', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
