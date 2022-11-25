@@ -22,6 +22,8 @@ class Register extends React.Component {
 	}
 
 	onRegisterClick = () =>{
+		// fetch('postgresql://postgres:s6KZtea6pLD9R4Nd1245@containers-us-west-126.railway.app:6719/railway', {
+		
 		fetch('https://polar-stream-61468.herokuapp.com/register', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
