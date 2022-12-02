@@ -51,7 +51,7 @@ class App extends Component {
 
   afterAPIcall = () =>{ // increment counter
     // fetch('https://polar-stream-61468.herokuapp.com/image', {
-    fetch('https://smartbrain-api-e1it.onrender.com/{image}', {
+    fetch('https://smartbrain-api-e1it.onrender.com/image', {
         method: 'put',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({
@@ -68,7 +68,7 @@ class App extends Component {
   }
 
   onApiCreds = () =>{ // retrieves API credentials to access Clarifai
-         fetch('https://smartbrain-api-e1it.onrender.com/{imageurl}',{
+         fetch('https://smartbrain-api-e1it.onrender.com/imageurl',{
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({

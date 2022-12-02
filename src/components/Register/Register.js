@@ -22,7 +22,7 @@ class Register extends React.Component {
 	}
 
 	onRegisterClick = () =>{
-		fetch('https://smartbrain-api-e1it.onrender.com/{register}', {
+		fetch('https://smartbrain-api-e1it.onrender.com/register', {
 			method: 'post',
 			headers: {'Content-Type': 'application/json'},
 			body: JSON.stringify({
