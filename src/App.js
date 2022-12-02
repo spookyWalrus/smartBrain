@@ -68,7 +68,7 @@ class App extends Component {
   }
 
   onApiCreds = () =>{ // retrieves API credentials to access Clarifai
-         fetch('https://smartbrain-api-e1it.onrender.com/{imageurl}',{
+         fetch('https://smartbrain-api-e1it.onrender.com/imageurl',{
       method: 'post',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({
