@@ -1,6 +1,8 @@
-Smart Brain App
+# Smart Brain facial detection app.
 
-Behold the magic of facial detection from an image!
-Just paste in a URL of an image and the web app will automatically detect the face of that image.
+## Paste in a URL of an image and the web app will automatically detect the human face of that image.
+## Implements ReactJS and PostgreSQL.
 
-Integrated with the Clarifai.com facial recognition API.
+## This app connects to the [API at clarifai.com](https://help.clarifai.com/hc/en-us/articles/1500001795562-Detect-faces-in-your-photos) and uses the facial detection AI.
+
+### [See the live version here.](https://nimble-shortbread-540549.netlify.app/)
