@@ -26,10 +26,6 @@ class Register extends React.Component {
       method: "post",
       headers: {
         "Content-Type": "application/json",
-        "Access-Control-Allow-Origin":
-          "https://nimble-shortbread-540549.netlify.app",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Methods": "POST, OPTIONS",
       },
       body: JSON.stringify({
         email: this.state.email,
